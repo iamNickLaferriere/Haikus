@@ -63,7 +63,7 @@ public class HaikuDriver {
     	 		//total syllable count equals 17 (12+5=17)
     	 		else if(sylNum == 17){
     	 		sylNum =5;
-    	 		haikus += word + "\n";
+    	 		haikus += word + "\n" + "\n";
     	 		word = " ";
     	 		lineSylNum = 0;
     		 	count++;
