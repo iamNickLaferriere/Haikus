@@ -14,19 +14,15 @@ import java.util.Scanner;
  * Purpose: Read in a text file. Process the file and print out any Haiku you find (5 syllables, 7 syllables 5 syllables). 
  */
 public class HaikuDriver {
-	//Array list to store words
-	//String[] wordsArray;
-	//Array List to store haikus
-    //String[] haikusArray;
-    String word = "";
+
+	String word = "";
 	String haikus = "";
 	String fileName = "sample.txt";
 	int lineSylNum = 0;
 	int sylNum = 5;
 	int count;
 	Scanner scan;
-		
-	
+
     /*
      * 
      */
@@ -50,7 +46,7 @@ public class HaikuDriver {
     	 	
     	 	lineSylNum += countSyllables(sCurrentWord);
     	 	word += sCurrentWord + " ";
-    	 	//System.out.println(line);				
+				
     	 		if(lineSylNum == sylNum){
     	 		//total syllable count equals 5
     	 		if(sylNum == 5){
@@ -63,6 +59,7 @@ public class HaikuDriver {
     	 		//total syllable count equals 17 (12+5=17)
     	 		else if(sylNum == 17){
     	 		sylNum =5;
+    	 		//TODO add a better numbering system for the haikus instead of just printing out in one blob
     	 		haikus += word + "\n" + "\n";
     	 		word = " ";
     	 		lineSylNum = 0;
@@ -73,8 +70,6 @@ public class HaikuDriver {
     	 	 	else if(lineSylNum > sylNum){
 	    	 	clear();
 	    	 	}
-    	 		//System.out.println(sylNum);
-    	 		//System.out.println(scan.hasNext());
     	 }
     	 System.out.println("Haikus:"+ "\n" + "\n" + haikus);
     	 System.out.println("Total Haikus: " + count);
@@ -86,7 +81,7 @@ public class HaikuDriver {
     	scan.close();
     }
     
-    /*
+       /*
  	* NEEDS IMPROVEMENT
  	* counts syllables in a word just by counting the number of vowels
  	*/
@@ -100,9 +95,11 @@ public class HaikuDriver {
     		if (isVowel(word.charAt(i)) && (vowel==false)) {
     			vowel = true;
     			syl++;
-    		} else if (isVowel(word.charAt(i)) && (vowel==true)) {
+    		} 
+    		else if (isVowel(word.charAt(i)) && (vowel==true)) {
     			vowel = true;
-    		} else {
+    		} 
+    		else {
     			vowel = false;
     		}
     	}
@@ -114,11 +111,11 @@ public class HaikuDriver {
     	return syl;
     }
 
-    /*
+       /*
  	* check if a char is a vowel including y
  	*/
     public static boolean isVowel(char c) {
-    	if      ((c == 'a') || (c == 'A')) { 
+    	if ((c == 'a') || (c == 'A')) { 
     		return true;  
     		}
     	else if ((c == 'e') || (c == 'E')) { 
